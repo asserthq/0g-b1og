@@ -2,10 +2,10 @@
 Learning Laravel 
 
 ## Clone
-    ```
-    git clone https://github.com/asserthq/0g-b1og.git
-    cd 0g-b1og
-    ```
+```
+git clone https://github.com/asserthq/0g-b1og.git
+cd 0g-b1og
+```
 
 ## Set up
 - Generate depedencies in vendor folder
