@@ -19,3 +19,8 @@ cd 0g-b1og
     php artisan key:generate
     ```
 - Configure `.env`
+
+## Run
+```
+php artisan serve
+```
