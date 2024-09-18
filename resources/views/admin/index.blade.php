@@ -1,4 +1,4 @@
-@extends('admin.app')
+@extends('admin.layout')
 
 {{-- Customize layout sections --}}
 
