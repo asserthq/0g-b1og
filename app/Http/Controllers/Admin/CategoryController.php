@@ -22,7 +22,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        dd(__METHOD__);
+        return view('admin.categories.create');
     }
 
     /**
