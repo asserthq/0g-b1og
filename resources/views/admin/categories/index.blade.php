@@ -43,7 +43,7 @@
                                         {{ $category->slug }}
                                     </td>
                                     <td>
-                                        <a href="{{ route('category.edit', $category->id) }}" class="btn btn-info btn-sm float-left mr-1">
+                                        <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-info btn-sm float-left mr-1">
                                             <i class="fas fa-pencil-alt"></i>
                                         </a>
                                         <form action="{{ route('categories.destroy', $category->id) }}" method="POST" class="float-left">
