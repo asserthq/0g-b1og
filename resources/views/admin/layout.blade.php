@@ -4,24 +4,35 @@
 
 @section('title')
     {{ config('adminlte.title') }}
-    @hasSection('subtitle') | @yield('subtitle') @endif
+    @hasSection('subtitle')
+        | @yield('subtitle')
+    @endif
 @stop
 
 {{-- Extend and customize the page content header --}}
 
 @section('content_header')
-    @hasSection('content_header_title')
-        <h1 class="text-muted">
-            @yield('content_header_title')
-
-            @hasSection('content_header_subtitle')
-                <small class="text-dark">
-                    <i class="fas fa-xs fa-angle-right text-muted"></i>
-                    @yield('content_header_subtitle')
-                </small>
-            @endif
-        </h1>
-    @endif
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    @hasSection('content_header_title')
+                        <h1 class="m-0">
+                            @yield('content_header_title')
+                        </h1>
+                    @endif
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    @hasSection('content_header_title')
+                        <ol class="breadcrumb float-sm-right">
+                            @yield('breadcrumbs')
+                        </ol>
+                    @endif
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
 @stop
 
 {{-- Rename section content to content_body --}}
@@ -47,29 +58,25 @@
 {{-- Add common Javascript/Jquery code --}}
 
 @push('js')
-<script>
-
-    $(document).ready(function() {
-        // Add your common script logic here...
-    });
-
-</script>
+    <script>
+        $(document).ready(function() {
+            // Add your common script logic here...
+        });
+    </script>
 @endpush
 
 {{-- Add common CSS customizations --}}
 
 @push('css')
-<style type="text/css">
-
-    {{-- You can add AdminLTE customizations here --}}
-    /*
-    .card-header {
-        border-bottom: none;
-    }
-    .card-title {
-        font-weight: 600;
-    }
-    */
-
-</style>
+    <style type="text/css">
+        {{-- You can add AdminLTE customizations here --}}
+        /*
+        .card-header {
+            border-bottom: none;
+        }
+        .card-title {
+            font-weight: 600;
+        }
+        */
+    </style>
 @endpush

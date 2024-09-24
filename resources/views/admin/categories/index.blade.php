@@ -2,69 +2,54 @@
 
 {{-- Customize layout sections --}}
 
-@section('subtitle', 'Admin panel')
-@section('content_header_title', 'Admin panel')
-@section('content_header_subtitle', 'Index page')
+@section('subtitle', 'Categories')
+@section('content_header_title', 'Categories')
+@section('breadcrumbs')
+    <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+    <li class="breadcrumb-item active">Categories</li>
+@stop
 
 {{-- Content body: main page content --}}
 
 @section('content_body')
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Bordered Table</h3>
+            <h3 class="card-title">Categories list</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
+            <a href="{{ route('categories.create') }}" class="btn btn-primary mb-3">Add category</a>
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th style="width: 10px">#</th>
-                        <th>Task</th>
-                        <th>Progress</th>
-                        <th style="width: 40px">Label</th>
+                        <th style="width: 10px">ID</th>
+                        <th>Title</th>
+                        <th>Slug</th>
+                        <th style="width: 100px">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1.</td>
-                        <td>Update software</td>
-                        <td>
-                            <div class="progress progress-xs">
-                                <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                            </div>
-                        </td>
-                        <td><span class="badge bg-danger">55%</span></td>
-                    </tr>
-                    <tr>
-                        <td>2.</td>
-                        <td>Clean database</td>
-                        <td>
-                            <div class="progress progress-xs">
-                                <div class="progress-bar bg-warning" style="width: 70%"></div>
-                            </div>
-                        </td>
-                        <td><span class="badge bg-warning">70%</span></td>
-                    </tr>
-                    <tr>
-                        <td>3.</td>
-                        <td>Cron job running</td>
-                        <td>
-                            <div class="progress progress-xs progress-striped active">
-                                <div class="progress-bar bg-primary" style="width: 30%"></div>
-                            </div>
-                        </td>
-                        <td><span class="badge bg-primary">30%</span></td>
-                    </tr>
-                    <tr>
-                        <td>4.</td>
-                        <td>Fix and squish bugs</td>
-                        <td>
-                            <div class="progress progress-xs progress-striped active">
-                                <div class="progress-bar bg-success" style="width: 90%"></div>
-                            </div>
-                        </td>
-                        <td><span class="badge bg-success">90%</span></td>
-                    </tr>
+                    @foreach ($categories as $category)
+                        <tr>
+                            <td>
+                                {{ $category->id }}
+                            </td>
+                            <td>
+                                {{ $category->title }}
+                            </td>
+                            <td>
+                                {{ $category->slug }}
+                            </td>
+                            <td>
+                                <a class="btn btn-info btn-sm">
+                                    <i class="fas fa-pencil-alt"></i>
+                                </a>
+                                <a class="btn btn-danger btn-sm delete-btn" style="display: inline-block">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
