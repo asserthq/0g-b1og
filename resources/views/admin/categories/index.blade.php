@@ -41,12 +41,14 @@
                                 {{ $category->slug }}
                             </td>
                             <td>
-                                <a class="btn btn-info btn-sm">
+                                <a href="#" class="btn btn-info btn-sm float-left mr-1">
                                     <i class="fas fa-pencil-alt"></i>
                                 </a>
-                                <a class="btn btn-danger btn-sm delete-btn" style="display: inline-block">
-                                    <i class="fas fa-trash"></i>
-                                </a>
+                                <form action="" method="POST" class="float-left">
+                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Confirm the deletion')">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
