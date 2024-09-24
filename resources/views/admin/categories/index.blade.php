@@ -19,41 +19,47 @@
         <!-- /.card-header -->
         <div class="card-body">
             <a href="{{ route('categories.create') }}" class="btn btn-primary mb-3">Add category</a>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th style="width: 10px">ID</th>
-                        <th>Title</th>
-                        <th>Slug</th>
-                        <th style="width: 100px">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($categories as $category)
-                        <tr>
-                            <td>
-                                {{ $category->id }}
-                            </td>
-                            <td>
-                                {{ $category->title }}
-                            </td>
-                            <td>
-                                {{ $category->slug }}
-                            </td>
-                            <td>
-                                <a href="#" class="btn btn-info btn-sm float-left mr-1">
-                                    <i class="fas fa-pencil-alt"></i>
-                                </a>
-                                <form action="" method="POST" class="float-left">
-                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Confirm the deletion')">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+            @if (!empty($categories))
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover text-nowrap">
+                        <thead>
+                            <tr>
+                                <th style="width: 10px">ID</th>
+                                <th>Title</th>
+                                <th>Slug</th>
+                                <th style="width: 100px">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($categories as $category)
+                                <tr>
+                                    <td>
+                                        {{ $category->id }}
+                                    </td>
+                                    <td>
+                                        {{ $category->title }}
+                                    </td>
+                                    <td>
+                                        {{ $category->slug }}
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-info btn-sm float-left mr-1">
+                                            <i class="fas fa-pencil-alt"></i>
+                                        </a>
+                                        <form action="" method="POST" class="float-left">
+                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Confirm the deletion')">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            @else
+                <p>There are no categories :/</p>
+            @endif
         </div>
         <!-- /.card-body -->
         <div class="card-footer clearfix">

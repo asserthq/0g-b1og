@@ -13,9 +13,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $nc = new Category();
-        $nc->title = 'testt';
-        $categories = [$nc];
+        $categories = [];
         return view('admin.categories.index', compact('categories'));
     }
 
