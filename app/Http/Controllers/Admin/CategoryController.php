@@ -22,7 +22,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        dd(__METHOD__);
     }
 
     /**
@@ -46,7 +46,7 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        dd(__METHOD__);
     }
 
     /**
@@ -62,6 +62,6 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        dd(__METHOD__);
     }
 }

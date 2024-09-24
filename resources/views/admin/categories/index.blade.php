@@ -43,10 +43,12 @@
                                         {{ $category->slug }}
                                     </td>
                                     <td>
-                                        <a href="#" class="btn btn-info btn-sm float-left mr-1">
+                                        <a href="{{ route('category.edit', $category->id) }}" class="btn btn-info btn-sm float-left mr-1">
                                             <i class="fas fa-pencil-alt"></i>
                                         </a>
-                                        <form action="" method="POST" class="float-left">
+                                        <form action="{{ route('categories.destroy', $category->id) }}" method="POST" class="float-left">
+                                            @csrf
+                                            @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Confirm the deletion')">
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>
