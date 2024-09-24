@@ -2,14 +2,10 @@
 
 {{-- Customize layout sections --}}
 
-@section('subtitle', 'Admin panel')
-@section('content_header_title', 'Admin panel')
-@section('content_header_subtitle', 'Index page')
-
 @section('subtitle', 'Home')
 @section('content_header_title', 'Home')
 @section('breadcrumbs')
-    <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+    <li class="breadcrumb-item active">Home</li>
 @stop
 
 {{-- Content body: main page content --}}

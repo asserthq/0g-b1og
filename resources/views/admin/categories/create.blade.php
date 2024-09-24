@@ -2,11 +2,12 @@
 
 {{-- Customize layout sections --}}
 
-@section('subtitle', 'Categories')
-@section('content_header_title', 'Categories')
+@section('subtitle', 'Create category')
+@section('content_header_title', 'Create category')
 @section('breadcrumbs')
     <li class="breadcrumb-item"><a href="/admin">Home</a></li>
-    <li class="breadcrumb-item active">Categories</li>
+    <li class="breadcrumb-item"><a href="/admin/categories">Categories</a></li>
+    <li class="breadcrumb-item active">Create</li>
 @stop
 
 {{-- Content body: main page content --}}
@@ -14,7 +15,7 @@
 @section('content_body')
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Create new category</h3>
+            <h3 class="card-title">New category</h3>
         </div>
         <!-- /.card-header -->
         <!-- form start -->
