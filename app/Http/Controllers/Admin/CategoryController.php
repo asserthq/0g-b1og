@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreCategory;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -28,11 +29,8 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreCategory $request)
     {
-        $request->validate([
-            'title' => 'required'
-        ]);
         Category::create($request->all());
         return redirect()->route('categories.index')->with('success','Category has been added');
     }
