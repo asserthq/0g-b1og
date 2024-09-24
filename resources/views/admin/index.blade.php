@@ -6,10 +6,16 @@
 @section('content_header_title', 'Admin panel')
 @section('content_header_subtitle', 'Index page')
 
+@section('subtitle', 'Home')
+@section('content_header_title', 'Home')
+@section('breadcrumbs')
+    <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+@stop
+
 {{-- Content body: main page content --}}
 
 @section('content_body')
-    <p>Welcome to this beautiful admin panel.</p>
+    <p>Welcome to 0g-b1og admin panel :)</p>
 @stop
 
 {{-- Push extra CSS --}}
