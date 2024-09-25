@@ -22,6 +22,7 @@ class Tag extends Model
     {
         return SlugOptions::create()
             ->generateSlugsFrom('title')
+            ->doNotGenerateSlugsOnUpdate()
             ->saveSlugsTo('slug');
     }
 }

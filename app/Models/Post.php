@@ -24,6 +24,7 @@ class Post extends Model
     {
         return SlugOptions::create()
             ->generateSlugsFrom('title')
+            ->doNotGenerateSlugsOnUpdate()
             ->saveSlugsTo('slug');
     }
 }
