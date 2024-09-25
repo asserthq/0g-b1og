@@ -18,7 +18,7 @@
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-            <a href="{{ route('categories.create') }}" class="btn btn-primary mb-3">Add tag</a>
+            <a href="{{ route('tags.create') }}" class="btn btn-primary mb-3">Add tag</a>
             @if (!empty($tags))
                 <div class="table-responsive">
                     <table class="table table-bordered table-hover text-nowrap">
