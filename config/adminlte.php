@@ -329,6 +329,21 @@ return [
                     'url' => '/admin/categories/create',
                 ]
             ],
+        ],
+        [
+            'text' => 'Tags',
+            'icon' => 'fas fa-fw fa-tags',
+            'url' => '/admin/tags',
+            'submenu' => [
+                [
+                    'text' => 'Tags list',
+                    'url' => '/admin/tags',
+                ],
+                [
+                    'text' => 'New tag',
+                    'url' => '/admin/tags/create',
+                ]
+            ],
         ]
     ],
 
