@@ -311,17 +311,22 @@ return [
             'text' => 'search',
         ],
         [
+            'text' => 'Home',
+            'icon' => 'fas fa-fw fa-home',
+            'url' => '/admin'
+        ],
+        [
             'text' => 'Categories',
             'icon' => 'fas fa-fw fa-archive',
-            'url' => 'admin/categories',
+            'url' => '/admin/categories',
             'submenu' => [
                 [
                     'text' => 'Categories list',
-                    'url' => 'admin/categories',
+                    'url' => '/admin/categories',
                 ],
                 [
                     'text' => 'New category',
-                    'url' => 'admin/categories/create',
+                    'url' => '/admin/categories/create',
                 ]
             ],
         ]
