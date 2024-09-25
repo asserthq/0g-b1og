@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreCategory;
+use App\Http\Requests\CategoryFormRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -29,7 +29,7 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCategory $request)
+    public function store(CategoryFormRequest $request)
     {
         Category::create($request->all());
         return redirect()->route('categories.index')->with('success','Category has been added');
@@ -55,7 +55,7 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(StoreCategory $request, string $id)
+    public function update(CategoryFormRequest $request, string $id)
     {
         $category = Category::find($id);
         $category->update($request->all());

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UpdateTagRequest;
+use App\Http\Requests\TagFormRequest;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 
@@ -29,7 +29,7 @@ class TagController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(UpdateTagRequest $request)
+    public function store(TagFormRequest $request)
     {
         Tag::create($request->all());
         return redirect()->route('tags.index')->with('success','Tag has been added');
@@ -55,7 +55,7 @@ class TagController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTagRequest $request, string $id)
+    public function update(TagFormRequest $request, string $id)
     {
         $tag = Tag::find($id);
         $tag->update($request->all());
