@@ -69,9 +69,7 @@
     </div>
 
     <strong>
-        <a href="{{ config('app.company_url', '#') }}">
-            {{ config('app.company_name', 'My company') }}
-        </a>
+        Copyright © <a href="https://vk.com/sanyaogr">Ogorodov Aleksandr</a>
     </strong>
 @stop
 
