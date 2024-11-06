@@ -347,7 +347,7 @@ return [
         ],
         [
             'text' => 'Posts',
-            'icon' => 'fas fa-fw fa-paper-plane',
+            'icon' => 'fas fa-fw fa-edit',
             'url' => '/admin/posts',
             'submenu' => [
                 [
