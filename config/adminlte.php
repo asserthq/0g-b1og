@@ -344,6 +344,21 @@ return [
                     'url' => '/admin/tags/create',
                 ]
             ],
+        ],
+        [
+            'text' => 'Posts',
+            'icon' => 'fas fa-fw fa-paper-plane',
+            'url' => '/admin/posts',
+            'submenu' => [
+                [
+                    'text' => 'Posts list',
+                    'url' => '/admin/posts',
+                ],
+                [
+                    'text' => 'New post',
+                    'url' => '/admin/posts/create',
+                ]
+            ],
         ]
     ],
 
