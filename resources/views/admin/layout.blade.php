@@ -77,8 +77,24 @@
 
 @push('js')
     <script>
+        let select2NeedsInit = false;
+    </script>
+    @hasSection('plugins.Select2')
+        <script>
+            select2NeedsInit = @yield('plugins.Select2');
+        </script>
+    @endif
+    <script>
         $(document).ready(function() {
-            // Add your common script logic here...
+            if (select2NeedsInit) {
+                //Initialize Select2 Elements
+                $('.select2').select2()
+    
+                //Initialize Select2 Elements
+                $('.select2bs4').select2({
+                    theme: 'bootstrap4'
+                })
+            }
         });
     </script>
 @endpush
