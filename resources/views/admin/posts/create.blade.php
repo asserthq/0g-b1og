@@ -40,11 +40,9 @@
                 <div class="form-group">
                     <label for="category">Category</label>
                     <select name="category" id="category" class="form-control">
-                        <option>option 1</option>
-                        <option>option 2</option>
-                        <option>option 3</option>
-                        <option>option 4</option>
-                        <option>option 5</option>
+                        @foreach ($categories as $id => $title)
+                            <option value="{{ $id }}">{{ $title }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <!-- /.form-group -->
