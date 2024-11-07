@@ -20,7 +20,7 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form role="form" method="POST" action="{{ route('posts.store') }}">
+        <form role="form" method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
 
@@ -39,7 +39,7 @@
 
                 <div class="form-group">
                     <label for="category">Category</label>
-                    <select name="category" id="category" class="form-control">
+                    <select name="category_id" id="category" class="form-control">
                         @foreach ($categories as $id => $title)
                             <option value="{{ $id }}">{{ $title }}</option>
                         @endforeach
