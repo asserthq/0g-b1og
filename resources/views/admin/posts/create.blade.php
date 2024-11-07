@@ -50,13 +50,9 @@
                 <div class="form-group">
                     <label for="tags">Tags</label>
                     <select name="tags[]" id="tags" class="select2bs4" multiple="multiple" data-placeholder="Choose tags" style="width: 100%;">
-                        <option selected="selected">Alabama</option>
-                        <option>Alaska</option>
-                        <option>California</option>
-                        <option>Delaware</option>
-                        <option>Tennessee</option>
-                        <option>Texas</option>
-                        <option>Washington</option>
+                        @foreach ($tags as $id => $title)
+                            <option value="{{ $id }}">{{ $title }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <!-- /.form-group -->
