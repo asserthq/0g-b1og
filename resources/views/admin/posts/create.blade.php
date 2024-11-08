@@ -72,8 +72,8 @@
                 <!-- /.form-group -->
 
                 <div class="form-group">
-                    <label>Content</label>
-                    <textarea class="form-control" rows="5" placeholder="Some content ..."></textarea>
+                    <label for="content">Content</label>
+                    <textarea name="content" id="content" class="form-control" rows="5" placeholder="Some content ..."></textarea>
                 </div>
                 <!-- /.form-group -->
 
