@@ -37,6 +37,14 @@ class PostController extends Controller
     {
         $data = $request->all();
 
+        if ($request->hasFile('thumbnail')) 
+        {
+            $folder = date('Y-m-d');
+            $data['thumbnail'] = $request->file('thumbnail')->store(public_path("uploads/images/{$folder}"));
+        }
+
+        $post = Post::create($data);
+
         return redirect()->route('posts.index')->with('success','Post has been created');
     }
 
