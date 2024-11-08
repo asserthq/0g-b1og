@@ -22,7 +22,11 @@ class PostFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required'
+            'title' => 'required',
+            'description' => 'required',
+            'content' => 'required',
+            'category_id' => 'required|integer',
+            'thumbnail' => 'nullable|image'
         ];
     }
 }
