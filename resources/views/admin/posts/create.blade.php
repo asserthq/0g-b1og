@@ -33,13 +33,13 @@
 
                 <div class="form-group">
                     <label for="description">Description</label>
-                    <textarea name="description" id="description" class="form-control" rows="3" placeholder="Some description ..."></textarea>
+                    <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror" rows="3" placeholder="Some description ..."></textarea>
                 </div>
                 <!-- /.form-group -->
 
                 <div class="form-group">
                     <label for="category">Category</label>
-                    <select name="category_id" id="category" class="form-control">
+                    <select name="category_id" id="category" class="form-control @error('category_id') is-invalid @enderror">
                         @foreach ($categories as $id => $title)
                             <option value="{{ $id }}">{{ $title }}</option>
                         @endforeach
@@ -49,7 +49,7 @@
 
                 <div class="form-group">
                     <label for="tags">Tags</label>
-                    <select name="tags[]" id="tags" class="select2bs4" multiple="multiple" data-placeholder="Choose tags" style="width: 100%;">
+                    <select name="tags[]" id="tags" class="select2bs4 @error('tags[]') is-invalid @enderror" multiple="multiple" data-placeholder="Choose tags" style="width: 100%;">
                         @foreach ($tags as $id => $title)
                             <option value="{{ $id }}">{{ $title }}</option>
                         @endforeach
@@ -60,7 +60,7 @@
                 <div class="form-group">
                     <label for="thumbnail">Thumbnail</label>
                     <div class="input-group">
-                        <div class="custom-file">
+                        <div class="custom-file @error('thumbnail') is-invalid @enderror">
                             <input name="thumbnail" id="thumbnail" type="file" class="custom-file-input">
                             <label for="thumbnail" class="custom-file-label">Choose file</label>
                         </div>
@@ -73,7 +73,7 @@
 
                 <div class="form-group">
                     <label for="content">Content</label>
-                    <textarea name="content" id="content" class="form-control" rows="5" placeholder="Some content ..."></textarea>
+                    <textarea name="content" id="content" class="form-control @error('content') is-invalid @enderror" rows="5" placeholder="Some content ..."></textarea>
                 </div>
                 <!-- /.form-group -->
 
