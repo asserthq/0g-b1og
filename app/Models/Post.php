@@ -55,7 +55,7 @@ class Post extends Model
                 Storage::disk('public')->delete($insteadOf);
             }
             $folder = date('Y-m-d');
-            return $request->file('thumbnail')->store("uploads/images/{$folder}", 'public');
+            return $request->file('thumbnail')->store("uploads/img/{$folder}", 'public');
         }
         else
         {
