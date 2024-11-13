@@ -16,11 +16,13 @@ class Post extends Model
 
     protected $fillable = ['title', 'description', 'category_id', 'thumbnail', 'content'];
 
-    public function tags() {
+    public function tags() 
+    {
         return $this->belongsToMany(Tag::class)->withTimestamps();
     }
 
-    public function category() {
+    public function category() 
+    {
         return $this->belongsTo(Category::class);
     }
 
@@ -32,7 +34,8 @@ class Post extends Model
             ->saveSlugsTo('slug');
     }
 
-    public static function uploadThumbnailFromRequest(PostFormRequest $request, $insteadOf = null) {
+    public static function uploadThumbnailFromRequest(PostFormRequest $request, $insteadOf = null) 
+    {
         if ($request->hasFile('thumbnail')) 
         {
             if ($insteadOf != null) 
