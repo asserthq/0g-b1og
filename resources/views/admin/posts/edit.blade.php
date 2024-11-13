@@ -2,6 +2,7 @@
 
 {{-- Customize layout sections --}}
 
+@section('plugins.Select2', true)
 @section('subtitle', 'Edit post')
 @section('content_header_title', 'Edit post')
 @section('breadcrumbs')
@@ -19,45 +20,46 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form role="form" method="POST" action="{{ route('posts.update', $post->id) }}">
+        <form role="form" method="POST" action="{{ route('posts.update', ['post' => $post->id]) }}" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <div class="card-body">
 
                 <div class="form-group">
                     <label for="title">Title</label>
-                    <input type="text" name="title" class="form-control @error('title') is-invalid @enderror"
-                        id="title" placeholder="My post">
+                    <input name="title" id="title" type="text" class="form-control @error('title') is-invalid @enderror"
+                        value="{{ $post->title }}">
                 </div>
                 <!-- /.form-group -->
 
                 <div class="form-group">
                     <label for="description">Description</label>
-                    <textarea name="description" id="description" class="form-control" rows="3" placeholder="Some description ..."></textarea>
+                    <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror" rows="3">
+                        {{ $post->description }}
+                    </textarea>
                 </div>
                 <!-- /.form-group -->
 
                 <div class="form-group">
                     <label for="category">Category</label>
-                    <select name="category" id="category" class="form-control">
-                        <option>option 1</option>
-                        <option>option 2</option>
-                        <option>option 3</option>
-                        <option>option 4</option>
-                        <option>option 5</option>
+                    <select name="category_id" id="category" class="form-control @error('category_id') is-invalid @enderror">
+                        @foreach ($categories as $id => $title)
+                            <option value="{{ $id }}" @if($id == $post->category_id) selected @endif>
+                                {{ $title }}
+                            </option>
+                        @endforeach
                     </select>
                 </div>
                 <!-- /.form-group -->
 
                 <div class="form-group">
                     <label for="tags">Tags</label>
-                    <select name="tags[]" id="tags" class="select2bs4" multiple="multiple" data-placeholder="Choose tags" style="width: 100%;">
-                        <option selected="selected">Alabama</option>
-                        <option>Alaska</option>
-                        <option>California</option>
-                        <option>Delaware</option>
-                        <option>Tennessee</option>
-                        <option>Texas</option>
-                        <option>Washington</option>
+                    <select name="tags[]" id="tags" class="select2bs4 @error('tags[]') is-invalid @enderror" multiple="multiple" data-placeholder="Choose tags" style="width: 100%;">
+                        @foreach ($tags as $id => $title)
+                            <option value="{{ $id }}" @if(in_array($id, $post->tags->pluck('id')->all())) selected @endif>
+                                {{ $title }}
+                            </option>
+                        @endforeach
                     </select>
                 </div>
                 <!-- /.form-group -->
@@ -65,7 +67,7 @@
                 <div class="form-group">
                     <label for="thumbnail">Thumbnail</label>
                     <div class="input-group">
-                        <div class="custom-file">
+                        <div class="custom-file @error('thumbnail') is-invalid @enderror">
                             <input name="thumbnail" id="thumbnail" type="file" class="custom-file-input">
                             <label for="thumbnail" class="custom-file-label">Choose file</label>
                         </div>
@@ -73,12 +75,17 @@
                             <span class="input-group-text">Upload</span>
                         </div>
                     </div>
+                    <div>
+                        {{ $post->thumbnail }}
+                    </div>
                 </div>
                 <!-- /.form-group -->
 
                 <div class="form-group">
-                    <label>Content</label>
-                    <textarea class="form-control" rows="5" placeholder="Some content ..."></textarea>
+                    <label for="content">Content</label>
+                    <textarea name="content" id="content" class="form-control @error('content') is-invalid @enderror" rows="5">
+                        {{ $post->content }}
+                    </textarea>
                 </div>
                 <!-- /.form-group -->
 
