@@ -44,6 +44,7 @@ class PostController extends Controller
         }
 
         $post = Post::create($data);
+        $post->tags()->sync($request->tags);
 
         return redirect()->route('posts.index')->with('success','Post has been created');
     }
