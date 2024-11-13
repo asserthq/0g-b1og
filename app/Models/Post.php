@@ -62,4 +62,9 @@ class Post extends Model
             return null;
         }
     }
+
+    public function deleteThumbnail() 
+    {
+        Storage::disk('public')->delete($this->thumbnail);
+    }
 }
