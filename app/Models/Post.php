@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Http\Requests\PostFormRequest;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -28,5 +30,21 @@ class Post extends Model
             ->generateSlugsFrom('title')
             ->doNotGenerateSlugsOnUpdate()
             ->saveSlugsTo('slug');
+    }
+
+    public static function uploadThumbnailFromRequest(PostFormRequest $request, $insteadOf = null) {
+        if ($request->hasFile('thumbnail')) 
+        {
+            if ($insteadOf != null) 
+            {
+                Storage::disk('public')->delete($insteadOf);
+            }
+            $folder = date('Y-m-d');
+            return $request->file('thumbnail')->store("uploads/images/{$folder}", 'public');
+        }
+        else
+        {
+            return null;
+        }
     }
 }
