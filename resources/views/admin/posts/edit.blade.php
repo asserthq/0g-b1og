@@ -76,7 +76,7 @@
                         </div>
                     </div>
                     <div>
-                        {{ $post->thumbnail }}
+                        <img src="{{ $post->getThumbnailUrl() }}" alt="thumbnail">
                     </div>
                 </div>
                 <!-- /.form-group -->

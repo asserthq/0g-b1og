@@ -34,6 +34,18 @@ class Post extends Model
             ->saveSlugsTo('slug');
     }
 
+    public function getThumbnailUrl() 
+    {
+        if ($this->thumbnail != null)
+        {
+            return asset("storage/{$this->thumbnail}");
+        }
+        else
+        {
+            return asset('img/no_image.jpg');
+        }
+    }
+
     public static function uploadThumbnailFromRequest(PostFormRequest $request, $insteadOf = null) 
     {
         if ($request->hasFile('thumbnail')) 
