@@ -40,7 +40,7 @@ class PostController extends Controller
         if ($request->hasFile('thumbnail')) 
         {
             $folder = date('Y-m-d');
-            $data['thumbnail'] = $request->file('thumbnail')->store(public_path("uploads/images/{$folder}"));
+            $data['thumbnail'] = $request->file('thumbnail')->store("uploads/images/{$folder}", 'public');
         }
 
         $post = Post::create($data);
