@@ -76,7 +76,7 @@
                         </div>
                     </div>
                     <div>
-                        <img src="{{ $post->getThumbnailUrl() }}" alt="thumbnail">
+                        <img src="{{ $post->getThumbnailUrl() }}" alt="thumbnail" class="img-thumbnail mt-2">
                     </div>
                 </div>
                 <!-- /.form-group -->
@@ -102,7 +102,15 @@
 {{-- Push extra CSS --}}
 
 @push('css')
-
+    <style type="text/css">
+        .img-thumbnail {
+            min-width: 100px;
+            min-height: 100px;
+            width: auto;
+            height: 360px;
+            object-fit: contain;
+        }
+    </style>
 @endpush
 
 {{-- Push extra scripts --}}
