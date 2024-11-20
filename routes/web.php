@@ -1,22 +1,21 @@
 <?php
 
-use App\Http\Controllers\Admin\MainController;
-use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\TagController;
-use App\Http\Controllers\Admin\PostController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('admin')->group(function() {
-    Route::get('/', [MainController::class,'index'])->name('admin.index');
-    Route::resource('/categories', CategoryController::class);
-    Route::resource('/tags', TagController::class);
-    Route::resource('/posts', PostController::class);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/auth/register', [UserController::class, 'create'])->name('auth.register');
-Route::post('/auth/register', [UserController::class, 'store'])->name('auth.store');
+require __DIR__.'/auth.php';
+require __DIR__.'/admin.php';
