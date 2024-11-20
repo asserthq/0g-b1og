@@ -13,6 +13,3 @@ Route::prefix('admin')->group(function() {
     Route::resource('/tags', TagController::class);
     Route::resource('/posts', PostController::class);
 });
-
-Route::get('/auth/register', [UserController::class, 'create'])->name('auth.register');
-Route::post('/auth/register', [UserController::class, 'store'])->name('auth.store');
