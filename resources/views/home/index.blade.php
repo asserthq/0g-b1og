@@ -7,15 +7,7 @@
     <meta name="author" content="David Grzyb">
     <meta name="description" content="">
 
-    <!-- Tailwind -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
-
-        .font-family-karla {
-            font-family: karla;
-        }
-    </style>
+    @vite('resources/css/app.css')
 
     <!-- AlpineJS -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
@@ -187,8 +179,7 @@
     <footer class="w-full border-t bg-white pb-12">
         <div
             class="relative w-full flex items-center invisible md:visible md:pb-12"
-            x-data="getCarouselData()"
-        >
+            x-data="getCarouselData()">
             <button
                 class="absolute bg-blue-800 hover:bg-blue-700 text-white text-2xl font-bold hover:shadow rounded-full w-16 h-16 ml-12"
                 x-on:click="decrement()">
