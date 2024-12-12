@@ -40,7 +40,7 @@
             @endisset
 
             <!-- Page Content -->
-            <main class="container mx-auto flex flex-wrap py-6">
+            <main class="container mx-auto flex flex-wrap">
                 {{ $slot }}
             </main>
 
