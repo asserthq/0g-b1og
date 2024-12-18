@@ -4,7 +4,9 @@ import Alpine from 'alpinejs';
 window.Alpine = Alpine;
 Alpine.start();
 
-import * as bootstrap from 'bootstrap';
+import './prism'
 
-import jQuery from 'jquery';
-window.$ = jQuery;
+import.meta.glob([
+    '../images/**',
+    '../favicons/**'
+]);

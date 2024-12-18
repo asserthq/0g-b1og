@@ -21,5 +21,9 @@ export default defineConfig({
             api: 'modern-compiler' // or "modern"
           }
         }
-    }
+    },
+    assetsInclude: [
+        'resources/images/**',
+        'resources/favicons/**'
+    ]
 });

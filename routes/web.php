@@ -5,7 +5,11 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/post', [HomeController::class, 'post'])->name('home.post');
+Route::get('/blog', [HomeController::class, 'blog'])->name('home.blog');
+Route::get('/projects', [HomeController::class, 'projects'])->name('home.projects');
+Route::get('/tags', [HomeController::class, 'tags'])->name('home.tags');
+Route::get('/about', [HomeController::class, 'about'])->name('home.about');
+Route::get('/article', [HomeController::class, 'article'])->name('home.article');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
