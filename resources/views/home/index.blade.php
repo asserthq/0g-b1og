@@ -19,12 +19,12 @@
                 <li class="py-12">
                     <article>
                         <div class="space-y-2 xl:grid xl:grid-cols-4 {{-- xl:items-baseline --}} xl:space-y-0">
-                            {{-- <dl>
+                            <dl>
                                 <dt class="sr-only">Published on</dt>
                                 <dd class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                                    <time dateTime="{{ $post->created_at->datetime }}">August 5, 2023</time>
+                                    <time>{{ $post->getCreationDate() }}</time>
                                 </dd>
-                            </dl> --}}
+                            </dl>
 
                             <div class="p-2">
                                 <img src="{{ $post->getThumbnailUrl() }}" alt="thumbnail" class="img-thumbnail" />

@@ -13,7 +13,7 @@
                             <div>
                                 <dt class="sr-only">Published on</dt>
                                 <dd class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                                    <time dateTime="2021-08-07T15:32:14.000Z">August 7, 2021</time>
+                                    <time>{{ $post->getCreationDate() }}</time>
                                 </dd>
                             </div>
                         </dl>

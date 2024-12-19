@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Http\Requests\PostFormRequest;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
@@ -66,5 +67,10 @@ class Post extends Model
     public function deleteThumbnail() 
     {
         Storage::disk('public')->delete($this->thumbnail);
+    }
+
+    public function getCreationDate()
+    {
+        return Carbon::createFromFormat('Y-m-d H:m:s', $this->created_at)->format('M d, Y');
     }
 }
