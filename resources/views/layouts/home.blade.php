@@ -11,7 +11,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="{{ Vite::asset('resources/favicons/favicon-16x16.png') }}" />
   <link rel="mask-icon" href="{{ Vite::asset('resources/favicons/safari-pinned-tab.svg') }}" color="#5bbad5" />
 
-  @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/scss/app.scss'])
+  @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/scss/app.scss', 'resources/css/blog.css', 'resources/js/prism.js'])
   
   <body class="bg-white text-black antialiased dark:bg-gray-950 dark:text-white">
     <section class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0">
