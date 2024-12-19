@@ -14,12 +14,24 @@ class HomeController extends Controller
         $posts = Post::with('tags')->simplePaginate(5);
         return view("home.index", compact('posts'));
     }
-    public function blog() 
+    public function blog($category_slug) 
     {
         $categories = Category::all();
-        $posts = Post::with('tags')
+        $posts =  null;
+        if ($category_slug != null)
+        {
+            $posts = Post::with('tags')
+                ->whereRelation('category', 'slug', '=', $category_slug)
                 ->orderBy('created_at', 'desc')
                 ->simplePaginate(5);
+        }
+        else
+        {
+            $posts = Post::with('tags')
+                ->orderBy('created_at', 'desc')
+                ->simplePaginate(5);
+        }
+        
         return view("home.blog", compact('categories', 'posts'));
     }
     public function tags() 

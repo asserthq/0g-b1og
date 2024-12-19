@@ -20,7 +20,7 @@
                 @foreach ($categories as $category)
 
                     <div class="mb-2 mr-5 mt-2">
-                        <a href="#"
+                        <a href="{{ route('home.blog.category', ['category_slug' => $category->slug]) }}"
                             class="mr-3 text-sm font-medium text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
                             {{ $category->title }}
                         </a>
