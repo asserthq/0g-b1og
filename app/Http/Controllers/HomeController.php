@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Tag;
+use App\Models\Category;
 
 class HomeController extends Controller
 {
@@ -17,19 +18,15 @@ class HomeController extends Controller
     {
         return view("pages.blog");
     }
-
-    public function projects() 
-    {
-        return view("pages.projects");
-    }
     public function tags() 
     {
         $tags = Tag::simplePaginate(15);
         return view("pages.tags", compact('tags'));
     }
-    public function about() 
+    public function categories() 
     {
-        return view("pages.about");
+        $categories = Category::all();
+        return view("pages.categories", compact('categories'));
     }
     public function article() 
     {
