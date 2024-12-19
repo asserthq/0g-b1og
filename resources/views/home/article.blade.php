@@ -30,7 +30,7 @@
 
                     <div class="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
                         <div class="prose max-w-none pb-8 pt-10 dark:prose-invert">
-                             {{ $post->content }}
+                             {!! $post->content !!}
                         </div>
                     </div>
 
