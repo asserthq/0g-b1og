@@ -1,6 +1,6 @@
 <header class="flex items-center justify-between py-10">
     <div>
-        <a href="index.html" aria-label="Header title">
+        <a href="{{ route('home') }}" aria-label="Header title">
             <div class="flex items-center justify-between">
                 <div class="mr-3">
                     <img src="{{ Vite::asset('resources/images/logo.svg') }}">
