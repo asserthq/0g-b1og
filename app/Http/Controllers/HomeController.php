@@ -17,7 +17,9 @@ class HomeController extends Controller
     public function blog() 
     {
         $categories = Category::all();
-        $posts = Post::with('tags')->simplePaginate(5);
+        $posts = Post::with('tags')
+                ->orderBy('created_at', 'desc')
+                ->simplePaginate(5);
         return view("home.blog", compact('categories', 'posts'));
     }
     public function tags() 
@@ -32,7 +34,9 @@ class HomeController extends Controller
     }
     public function article($slug) 
     {
-        $post = Post::findBySlug($slug);
+        $post = Post::where('slug', $slug)->firstOrFail();
+        $post->views_count += 1;
+        $post->update();
         return view("home.article", compact('post'));
     }
 }
