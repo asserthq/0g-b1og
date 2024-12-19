@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/blog', [HomeController::class, 'blog'])->name('home.blog');
 Route::get('/tags', [HomeController::class, 'tags'])->name('home.tags');
 Route::get('/categories', [HomeController::class, 'categories'])->name('home.categories');

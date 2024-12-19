@@ -12,27 +12,27 @@ class HomeController extends Controller
     public function index() 
     {
         $posts = Post::with('tags')->simplePaginate(5);
-        return view("pages.index", compact('posts'));
+        return view("home.index", compact('posts'));
     }
     public function blog() 
     {
         $categories = Category::all();
         $posts = Post::with('tags')->simplePaginate(5);
-        return view("pages.blog", compact('categories', 'posts'));
+        return view("home.blog", compact('categories', 'posts'));
     }
     public function tags() 
     {
         $tags = Tag::all();
-        return view("pages.tags", compact('tags'));
+        return view("home.tags", compact('tags'));
     }
     public function categories() 
     {
         $categories = Category::all();
-        return view("pages.categories", compact('categories'));
+        return view("home.categories", compact('categories'));
     }
     public function article($slug) 
     {
         $post = Post::findBySlug($slug);
-        return view("pages.article", compact('post'));
+        return view("home.article", compact('post'));
     }
 }
