@@ -20,7 +20,7 @@ class HomeController extends Controller
     }
     public function tags() 
     {
-        $tags = Tag::simplePaginate(15);
+        $tags = Tag::all();
         return view("pages.tags", compact('tags'));
     }
     public function categories() 
