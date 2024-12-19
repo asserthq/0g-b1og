@@ -8,7 +8,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/blog', [HomeController::class, 'blog'])->name('home.blog');
 Route::get('/tags', [HomeController::class, 'tags'])->name('home.tags');
 Route::get('/categories', [HomeController::class, 'categories'])->name('home.categories');
-Route::get('/article', [HomeController::class, 'article'])->name('home.article');
+Route::get('/article/{slug}', [HomeController::class, 'article'])->name('home.article');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

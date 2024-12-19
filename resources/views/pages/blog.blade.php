@@ -46,7 +46,7 @@
 
                                     <div>
                                         <h2 class="text-2xl font-bold leading-8 tracking-tight">
-                                            <a href="{{ route('home.article') }}" class="text-gray-900 dark:text-gray-100">
+                                            <a href="{{ route('home.article', ['slug' => $post->slug]) }}" class="text-gray-900 dark:text-gray-100">
                                                 {{ $post->title }}
                                             </a>
                                         </h2>

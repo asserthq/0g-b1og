@@ -30,8 +30,9 @@ class HomeController extends Controller
         $categories = Category::all();
         return view("pages.categories", compact('categories'));
     }
-    public function article() 
+    public function article($slug) 
     {
-        return view("pages.article-sidebar");
+        $post = Post::findBySlug($slug);
+        return view("pages.article", compact('post'));
     }
 }
