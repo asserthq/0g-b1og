@@ -16,7 +16,9 @@ class HomeController extends Controller
     }
     public function blog() 
     {
-        return view("pages.blog");
+        $categories = Category::all();
+        $posts = Post::with('tags')->simplePaginate(5);
+        return view("pages.blog", compact('categories', 'posts'));
     }
     public function tags() 
     {
