@@ -6,7 +6,7 @@
             <h1
                 class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:hidden sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
                 
-                0g-b1og
+                0g-b1og :: {{ $title }}
             </h1>
         </div>
 

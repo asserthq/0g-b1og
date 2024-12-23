@@ -15,7 +15,7 @@ class HomeController extends Controller
             ->orderBy('created_at', 'desc')
             ->limit(3)
             ->get();
-            
+
         return view("home.index", compact('posts'));
     }
 
@@ -23,6 +23,7 @@ class HomeController extends Controller
     {
         $categories = Category::all();
         $posts =  null;
+        $title = null;
         if ($category_slug != null)
         {
             $category = $categories->where('slug', $category_slug)->firstOrFail();
@@ -31,15 +32,17 @@ class HomeController extends Controller
                 ->with('tags')
                 ->orderBy('created_at', 'desc')
                 ->paginate(3);
+            $title = $category->title;
         }
         else
         {
             $posts = Post::with('tags')
                 ->orderBy('created_at', 'desc')
                 ->paginate(3);
+            $title = "All Posts";
         }
         
-        return view("home.blog", compact('categories', 'posts'));
+        return view("home.blog", compact('categories', 'posts', 'title'));
     }
 
     public function tags() 
