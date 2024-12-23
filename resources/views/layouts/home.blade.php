@@ -1,5 +1,10 @@
 <!DOCTYPE HTML>
-<html lang="en" class="scroll-smooth" :class="{ 'dark': darkMode }" x-data="{ showMenu: false, darkMode: false }">
+<html 
+    lang="en" 
+    class="scroll-smooth" 
+    :class="{ 'dark': darkMode }" 
+    x-data="{ showMenu: false, darkMode: false }">
+
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="apple-touch-icon" sizes="76x76" href="{{ Vite::asset('resources/favicons/apple-touch-icon.png') }}" />
 <link rel="icon" type="image/png" sizes="32x32" href="{{ Vite::asset('resources/favicons/favicon-32x32.png') }}" />
