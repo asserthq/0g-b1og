@@ -12,7 +12,7 @@ class HomeController extends Controller
     public function index() 
     {
         $posts = Post::with('tags')
-            ->orderBy('created_at', 'desc')
+            ->orderBy('views_count', 'desc')
             ->limit(3)
             ->get();
 
