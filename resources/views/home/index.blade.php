@@ -71,7 +71,7 @@
     </div>
 
     <div class="flex justify-end text-base font-medium leading-6">
-        <a href="blog.html" class="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+        <a href="{{ route('home.blog') }}" class="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
             aria-label="All posts">
             All Posts &rarr;
         </a>

@@ -13,7 +13,9 @@ class HomeController extends Controller
     {
         $posts = Post::with('tags')
             ->orderBy('created_at', 'desc')
-            ->take(3);
+            ->limit(3)
+            ->get();
+            
         return view("home.index", compact('posts'));
     }
 
@@ -51,7 +53,7 @@ class HomeController extends Controller
         $categories = Category::all();
         return view("home.categories", compact('categories'));
     }
-    
+
     public function article($slug) 
     {
         $post = Post::where('slug', $slug)->firstOrFail();
