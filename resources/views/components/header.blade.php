@@ -11,6 +11,7 @@
             </div>
         </a>
     </div>
+
     <div class="flex items-center space-x-4 leading-5 sm:space-x-6">
         <a href="{{ route('home.blog') }}" class="hidden font-medium text-gray-900 dark:text-gray-100 sm:block">
             Blog
@@ -31,7 +32,7 @@
         </button> --}}
 
         <button aria-label="Toggle Dark Mode" @click="darkMode = !darkMode">
-            
+
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                 class="h-6 w-6 text-gray-900 dark:text-gray-100">
 
@@ -46,7 +47,7 @@
             </svg>
         </button>
 
-
+        @include('components.mobile-nav')
 
     </div>
 </header>
