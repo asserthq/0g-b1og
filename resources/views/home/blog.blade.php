@@ -73,7 +73,7 @@
                 </ul>
 
                 <div class="space-y-2 pb-8 pt-6 md:space-y-5">
-                    <nav class="flex justify-between">
+                    {{-- <nav class="flex justify-between">
                         <button class="cursor-auto disabled:opacity-50" disabled>
                             Previous
                         </button>
@@ -86,7 +86,9 @@
                             Next
                         </a>
 
-                    </nav>
+                    </nav> --}}
+
+                    {{ $posts->links() }}
                 </div>
 
             </div>

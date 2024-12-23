@@ -11,9 +11,12 @@ class HomeController extends Controller
 {
     public function index() 
     {
-        $posts = Post::with('tags')->simplePaginate(5);
+        $posts = Post::with('tags')
+            ->orderBy('created_at', 'desc')
+            ->take(3);
         return view("home.index", compact('posts'));
     }
+
     public function blog($category_slug = null) 
     {
         $categories = Category::all();
@@ -25,27 +28,30 @@ class HomeController extends Controller
                 ->posts()
                 ->with('tags')
                 ->orderBy('created_at', 'desc')
-                ->simplePaginate(5);
+                ->paginate(3);
         }
         else
         {
             $posts = Post::with('tags')
                 ->orderBy('created_at', 'desc')
-                ->simplePaginate(5);
+                ->paginate(3);
         }
         
         return view("home.blog", compact('categories', 'posts'));
     }
+
     public function tags() 
     {
         $tags = Tag::all();
         return view("home.tags", compact('tags'));
     }
+
     public function categories() 
     {
         $categories = Category::all();
         return view("home.categories", compact('categories'));
     }
+    
     public function article($slug) 
     {
         $post = Post::where('slug', $slug)->firstOrFail();
