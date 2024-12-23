@@ -45,13 +45,17 @@ class HomeController extends Controller
 
     public function tags() 
     {
-        $tags = Tag::all();
+        $tags = Tag::withCount('posts')
+            ->orderBy('posts_count', 'desc')
+            ->get();
         return view("home.tags", compact('tags'));
     }
 
     public function categories() 
     {
-        $categories = Category::all();
+        $categories = Category::withCount('posts')
+            ->orderBy('posts_count', 'desc')
+            ->get();
         return view("home.categories", compact('categories'));
     }
 

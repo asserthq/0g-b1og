@@ -20,14 +20,18 @@
                 @foreach ($tags as $tag)
 
                     <div class="mb-2 mr-5 mt-2">
-                        <a href="#"
+                        <a 
+                            href="#"
                             class="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
+                            
                             {{ $tag->title }}
                         </a>
-                        {{-- <a href="#" class="-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300"
+                        <a 
+                            href="#" class="-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300"
                             aria-label="View posts tagged">
-                            (10)
-                        </a> --}}
+
+                            ({{ $tag->posts_count }})
+                        </a>
                     </div>
                 @endforeach
             </div>

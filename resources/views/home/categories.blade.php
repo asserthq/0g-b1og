@@ -11,6 +11,7 @@
             <div class="space-x-2 pb-8 pt-6 md:space-y-5">
                 <h1
                     class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:border-r-2 md:px-6 md:text-6xl md:leading-14">
+                    
                     Categories
                 </h1>
             </div>
@@ -20,14 +21,19 @@
                 @foreach ($categories as $category)
 
                     <div class="mb-2 mr-5 mt-2">
-                        <a href="{{ route('home.blog.category', ['category_slug' => $category->slug]) }}"
+                        <a 
+                            href="{{ route('home.blog.category', ['category_slug' => $category->slug]) }}"
                             class="mr-3 text-sm font-medium text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
+                            
                             {{ $category->title }}
                         </a>
-                        {{-- <a href="#" class="-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300"
-                            aria-label="View posts tagged">
-                            (10)
-                        </a> --}}
+                        <a 
+                            href="{{ route('home.blog.category', ['category_slug' => $category->slug]) }}" 
+                            class="-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300"
+                            aria-label="View category posts">
+
+                            ({{ $category->posts_count }})
+                        </a>
                     </div>
                 @endforeach
             </div>
