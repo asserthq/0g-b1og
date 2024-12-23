@@ -6,7 +6,7 @@
                     <img src="{{ Vite::asset('resources/images/logo.svg') }}">
                 </div>
                 <div class="hidden h-6 text-2xl font-semibold sm:block">
-                    Tailwind Blog
+                    0g-b1og
                 </div>
             </div>
         </a>
@@ -21,12 +21,6 @@
         <a href="{{ route('home.categories') }}" class="hidden font-medium text-gray-900 dark:text-gray-100 sm:block">
             Categories
         </a>
-        {{-- <a href="{{ route('home.projects') }}" class="hidden font-medium text-gray-900 dark:text-gray-100 sm:block">
-      Projects
-    </a> --}}
-        {{-- <a href="{{ route('home.about') }}" class="hidden font-medium text-gray-900 dark:text-gray-100 sm:block">
-      About
-    </a> --}}
 
         <button aria-label="Search">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5"
