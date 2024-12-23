@@ -1,12 +1,20 @@
 @extends('layouts.home')
 
+@php
+    $subtitle = "All Posts";
+    if($category_filter != null) 
+    {
+        $subtitle = $category_filter->title;
+    }
+@endphp
+
 @section('main')
     <div>
         <div class="pb-6 pt-6">
             <h1
                 class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:hidden sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
                 
-                0g-b1og :: {{ $title }}
+                0g-b1og :: {{ $subtitle }}
             </h1>
         </div>
 
@@ -16,7 +24,7 @@
                 class="hidden h-full max-h-screen min-w-[280px] max-w-[280px] flex-wrap overflow-auto rounded bg-gray-50 pt-5 shadow-md dark:bg-gray-900/70 dark:shadow-gray-800/40 sm:flex">
                 <div class="px-6 py-4">
                     <a href="{{ route('home.blog') }}">
-                        <h3 class="font-bold uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
+                        <h3 class="font-bold @if($category_filter == null) text-primary-500 uppercase @else text-gray-600 @endif hover:text-primary-600 dark:hover:text-primary-400">
                             All Posts
                         </h3>
                     </a>
@@ -25,7 +33,7 @@
                         @foreach ($categories as $category)
                             <li class="my-3">
                                 <a href="{{ route('home.blog.category', $category->slug) }}"
-                                    class="px-3 py-2 text-sm font-medium {{-- uppercase --}} text-gray-500 hover:text-primary-500 dark:text-gray-300 dark:hover:text-primary-500"
+                                    class="px-3 py-2 text-sm font-medium @if($category_filter != null && $category_filter->id == $category->id) text-primary-500 uppercase @else text-gray-500 @endif hover:text-primary-500 dark:text-gray-300 dark:hover:text-primary-500"
                                     aria-label="View posts tagged">
 
                                     {{ $category->title }}

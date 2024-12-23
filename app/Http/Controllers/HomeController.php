@@ -23,26 +23,24 @@ class HomeController extends Controller
     {
         $categories = Category::all();
         $posts =  null;
-        $title = null;
+        $category_filter = null;
         if ($category_slug != null)
         {
-            $category = $categories->where('slug', $category_slug)->firstOrFail();
-            $posts = $category
+            $category_filter = $categories->where('slug', $category_slug)->firstOrFail();
+            $posts = $category_filter
                 ->posts()
                 ->with('tags')
                 ->orderBy('created_at', 'desc')
                 ->paginate(3);
-            $title = $category->title;
         }
         else
         {
             $posts = Post::with('tags')
                 ->orderBy('created_at', 'desc')
                 ->paginate(3);
-            $title = "All Posts";
         }
         
-        return view("home.blog", compact('categories', 'posts', 'title'));
+        return view("home.blog", compact('categories', 'posts', 'category_filter'));
     }
 
     public function tags() 
