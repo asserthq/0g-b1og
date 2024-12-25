@@ -83,6 +83,8 @@
 {{-- Add common Javascript/Jquery code --}}
 
 @push('js')
+    <script src="https://cdn.ckeditor.com/ckeditor5/44.1.0/ckeditor5.umd.js"></script>
+    
     <script>
         let select2NeedsInit = false;
     </script>
@@ -104,20 +106,33 @@
             }
         });
     </script>
+
+    <script>
+        const {
+            ClassicEditor,
+            Essentials,
+            Bold,
+            Italic,
+            Font,
+            Paragraph
+        } = CKEDITOR;
+    
+        ClassicEditor
+            .create( document.querySelector( '#content' ), {
+                licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3MzYzODA3OTksImp0aSI6ImRmZWI4MWJmLTA5ODAtNDU0My1hM2ZjLTIzOTE5MDUzYmExMSIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJ3aGl0ZUxhYmVsIjp0cnVlLCJsaWNlbnNlVHlwZSI6InRyaWFsIiwiZmVhdHVyZXMiOlsiKiJdLCJ2YyI6IjU3MGJjOTdlIn0.--reVU7wy3rBqABls2yOcyScQTujKSX_6CYpH0mJaZWRKFFUGmE9HNj23_MngVd1nGZZrHGhcVLX7iirTOTJqA',
+                plugins: [ Essentials, Bold, Italic, Font, Paragraph ],
+                toolbar: [
+                    'undo', 'redo', '|', 'bold', 'italic', '|',
+                    'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+                ]
+            } )
+            .then( /* ... */ )
+            .catch( /* ... */ );
+    </script>
 @endpush
 
 {{-- Add common CSS customizations --}}
 
 @push('css')
-    <style type="text/css">
-        {{-- You can add AdminLTE customizations here --}}
-        /*
-        .card-header {
-            border-bottom: none;
-        }
-        .card-title {
-            font-weight: 600;
-        }
-        */
-    </style>
+    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/44.1.0/ckeditor5.css" />
 @endpush
